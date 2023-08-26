@@ -147,6 +147,7 @@ namespace GWSite.Areas.Admin.Controllers
 
             string productPath = @"images\products\product-" + id;
             string finalPath = Path.Combine(_webHostEnvironment.WebRootPath, productPath);
+            string urlDelete = productToBeDeleted.ImageUrl;
 
             if (Directory.Exists(finalPath))
             {
