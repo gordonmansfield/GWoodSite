@@ -1,12 +1,12 @@
 ﻿
 using GW.Models;
 using GWSite.Areas.Admin.Controllers;
-
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace GW.DataAccess.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
 	{
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
         {
@@ -18,7 +18,7 @@ namespace GW.DataAccess.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-            //base.OnModelCreating(modelBuilder); //
+            base.OnModelCreating(modelBuilder); //
 
 			modelBuilder.Entity<Category>().HasData(
 				new Category { Id = 1, Name = "Bowls", DisplayOrder = 1 },
